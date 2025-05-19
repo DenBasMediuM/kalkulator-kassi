@@ -269,21 +269,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin: 0;
             font-family: monospace;
             font-size: 18px;
-            display: none;
         }
         .result-details {
             font-family: monospace;
             font-size: 18px;
+            white-space: pre;
+            line-height: 1.8;
         }
         .result-row {
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
-            max-width: 300px;
+            display: block;
         }
         .result-row.total {
-            margin-top: 10px;
-            padding-top: 10px;
+            margin-top: 5px;
+            padding-top: 5px;
             border-top: 1px solid rgba(0,0,0,0.1);
             font-weight: bold;
         }
@@ -550,20 +548,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $cardValue = intval(str_replace('Карта: ', '', $resultLines[1]));
                 $totalValue = intval(str_replace('Итого: ', '', $resultLines[2]));
             ?>
-            <div class="result-details">
-                <div class="result-row">
-                    <span class="result-label">Касса:</span> 
-                    <span class="result-value"><?php echo number_format($cashValue, 0, '.', ' '); ?> грн</span>
-                </div>
-                <div class="result-row">
-                    <span class="result-label">Карта:</span> 
-                    <span class="result-value"><?php echo number_format($cardValue, 0, '.', ' '); ?> грн</span>
-                </div>
-                <div class="result-row total">
-                    <span class="result-label">Итого:</span> 
-                    <span class="result-value"><?php echo number_format($totalValue, 0, '.', ' '); ?> грн</span>
-                </div>
-            </div>
+            <pre class="result-details">Касса: <?php echo number_format($cashValue, 0, '.', ''); ?> 
+Карта: <?php echo number_format($cardValue, 0, '.', ''); ?> 
+Итого: <?php echo number_format($totalValue, 0, '.', ''); ?> грн</pre>
         </div>
         
         <h3>Детали расчёта:</h3>
