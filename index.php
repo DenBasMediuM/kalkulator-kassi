@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             
             // Extract all numbers from the line
-            if (preg_match_all('/\b(\d{3,})\b/', $line, $matches)) {
+            if (preg_match_all('/\b(\d+)\b/', $line, $matches)) {
                 // Skip if this appears to be a date line (matches patterns like [16.05.2025 10:31])
                 if (preg_match('/\[\d{2}\.\d{2}\.\d{4}\s+\d{1,2}:\d{2}\]/', $line)) {
                     continue;
@@ -106,6 +106,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     // Skip numbers that look like order IDs
                     if (strlen($amount) == 6 && strpos($line, $amount) !== false && 
                         preg_match('/\b'.$amount.'\b/', $line)) {
+                        continue;
+                    }
+                    
+                    // Skip very small numbers (likely parts of other data)
+                    if (intval($amount) < 10) {
                         continue;
                     }
                     
