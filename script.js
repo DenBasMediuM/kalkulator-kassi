@@ -237,9 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const totalBalance = cashBalance + cardBalance;
-        document.getElementById('resultDetails').innerHTML = `Касса: ${cashBalance.toLocaleString('ru-RU')}
-Карта: ${cardBalance.toLocaleString('ru-RU')}
-Итого: ${totalBalance.toLocaleString('ru-RU')} грн`;
+        document.getElementById('resultDetails').innerHTML = `Касса: ${cashBalance}
+Карта: ${cardBalance}
+Итого: ${totalBalance} грн`;
 
         showStep(3);
     });
