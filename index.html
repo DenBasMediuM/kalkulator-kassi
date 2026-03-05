@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор кассы</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор кассы</h1>
+        
+        <!-- Step 1: Enter the Telegram conversation -->
+        <div id="step1">
+            <form id="extractForm">
+                <div>
+                    <label for="message">Вставьте текст из Telegram:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Извлечь транзакции</button>
+            </form>
+        </div>
+        
+        <!-- Step 2: Mark transactions -->
+        <div id="step2" style="display: none;">
+            <form id="transactionForm">
+                <div style="margin-bottom: 20px;">
+                    <h2>Начальные балансы:</h2>
+                    <p id="initialBalances"></p>
+                </div>
+                
+                <h2>Отметьте тип каждой транзакции:</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="line-number">№</th>
+                            <th>Текст</th>
+                            <th class="amount">Сумма</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionsBody">
+                        <!-- Transaction rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+                
+                <button type="submit">Рассчитать</button>
+            </form>
+        </div>
+        
+        <!-- Step 3: Show the calculation result -->
+        <div id="step3" style="display: none;">
+            <div class="result">
+                <h2>Результат:</h2>
+                <pre id="resultDetails" class="result-details"></pre>
+            </div>
+            
+            <h3>Детали расчёта:</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th class="line-number">№</th>
+                        <th>Текст</th>
+                        <th class="amount">Сумма</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody id="calculationDetails">
+                    <!-- Calculation details will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+            
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button id="backToEditButton" style="background-color: #2196F3;">Изменить разметку</button>
+                <button id="startOverButton">Начать заново</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
