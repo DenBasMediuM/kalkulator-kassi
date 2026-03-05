@@ -8,75 +8,167 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     padding: 20px;
-    background-color: #f5f5f5;
-}
-
-.container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
+.container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
 }
-
-.form-group {
-    margin-bottom: 20px;
-}
-
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
 }
-
 textarea {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
+    height: 300px;
+    margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 16px;
-    font-family: monospace;
+    box-sizing: border-box; /* Added for consistency */
 }
-
 button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px 15px;
-    font-size: 16px;
+    padding: 10px 20px;
     cursor: pointer;
     border-radius: 4px;
-    display: block;
-    margin: 0 auto;
 }
-
 button:hover {
     background-color: #45a049;
 }
-
 .result {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 15px;
-    background-color: #f8f9fa;
-    border-radius: 4px;
-    border-left: 4px solid #4CAF50;
+    background-color: #e8f5e9;
+    border-left: 5px solid #4CAF50;
 }
-
-.result h2 {
-    margin-bottom: 10px;
-    color: #333;
-}
-
-pre {
+.result pre {
+    margin: 0;
     font-family: monospace;
-    white-space: pre-wrap;
     font-size: 18px;
-    color: #333;
 }
+.result-details {
+    font-family: monospace;
+    font-size: 18px;
+    white-space: pre;
+    line-height: 1.8;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+}
+.line-number {
+    width: 50px;
+    text-align: center;
+}
+.amount {
+    width: 100px;
+}
+.action-options {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+}
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-top: 5px;
+}
+.radio-button {
+    position: relative;
+    display: inline-block;
+}
+.radio-button input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.radio-button label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0;
+    font-weight: normal;
+    background-color: #f1f1f1;
+    border: 2px solid #ddd;
+    transition: all 0.2s ease;
+}
+.radio-button input[type="radio"]:checked + label {
+    background-color: #e3f2fd;
+    border-color: #2196F3;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+.radio-button[data-type="cash_plus"] label {
+    color: #4CAF50;
+}
+.radio-button[data-type="cash_minus"] label {
+    color: #F44336;
+}
+.radio-button[data-type="card_plus"] label {
+    color: #2196F3;
+}
+.radio-button[data-type="card_minus"] label {
+    color: #9C27B0;
+}
+.radio-button[data-type="transfer_to_card"] label {
+    color: #FF9800;
+}
+.radio-button[data-type="transfer_to_cash"] label {
+    color: #009688;
+}
+.radio-button[data-type="ignore"] label {
+    color: #757575;
+}
+.tooltip {
+    position: relative;
+}
+.tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+pre {
+    margin: 0 0 10px;
+    white-space: pre-wrap;
+    font-family: monospace;
+}
+.special-action {
+    font-style: italic;
+    color: #555;
+}
+
