@@ -90,6 +90,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $lines = explode("\n", $messageText);
         
         foreach ($lines as $lineNum => $line) {
+            // Strip the timestamp and author part
+            $line = preg_replace('/^\[\d{2}\.\d{2}\.\d{4}\s+\d{1,2}:\d{2}\]\s*[^:]+:\s*/', '', $line);
+
             // Skip empty lines
             if (empty(trim($line))) {
                 continue;
